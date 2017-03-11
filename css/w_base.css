@@ -1,0 +1,143 @@
+body{
+    background-color:#eee;
+    color:#999;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+a{
+    color:#555;
+    text-decoration:none;
+}
+.content{
+    padding:20px;
+    overflow-x:hidden;
+}
+.logo{
+    margin-top:40px;
+    margin-bottom:20px;
+    text-align:center;
+}
+.inputSettings{
+    width:100%;
+    padding:10px;
+    background:#fff;
+    display:block;
+    line-height:1.6;
+    border:none;
+    margin-bottom:1px;
+    box-sizing:border-box;
+}
+.remember{
+    margin-top:20px !important;
+}
+.buttonBig{
+    width:100%;
+    margin-top:20px;
+    padding:12px;
+    font-size:18px;
+    background:#029BC1;
+    display:block;
+    border:none;
+}
+.register{
+    float:left;
+}
+.forgetPass{
+    float:right;
+}
+.forgetPass,.register{
+    color:#148cf1;
+    margin-top:20px;
+}
+
+ul{
+    list-style:none;
+    padding:0;
+}
+.items{
+    background-color:#fff;
+    padding:10px;
+    margin-bottom:1px;
+}
+.header{
+    height: 50px;
+    overflow: hidden;
+    text-align: center;
+    background: #282828;
+    padding: 10px 0 0 3px;
+    position: relative;
+    line-height: 30px;
+}
+.menu{
+    height: 30px;
+    width: 32px;
+    left: 10px;
+    top: 15px;
+    background:red;
+    position: absolute;
+}
+.personCenter{
+    right: 2px;
+    top: 0px;
+    margin-right: 6px;
+    width: 40px;
+    height: 50px;
+    position:absolute;
+}
+.buttonSettings{
+    background:#029BC1;
+    float:right;
+    border:none;
+    width: 60px;
+    height: 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right:5px;
+}
+.realPrice{
+    color:#029BC1;
+    font-size:20px;
+}
+.originPrice{
+    font-size:13px;
+}
+.ticketName{
+    color:#000;
+    font-weight:bold;
+}
+.ticketDesp{
+    font-size:13px;
+}
+.ticketID,.ticketStatus{
+    float:right;
+    font-weight:normal;
+    color:#FF6600;
+}
+.messageLabel{
+    display:block;
+    margin:10px 0;
+}
+.myIndex,.myOrders,.myScenes{
+    display:inline-block;
+    width:30%;
+    height: 40px;
+    line-height:40px;
+    text-align:center;
+    color: #666;
+}
+.menuNav{
+    width:100%;
+    background:#fff;
+}
+.sendMsg{
+    margin:12px 0;
+}
+.Time{
+    display:inline-block;
+    width:40%;
+}
+.searchTitle{
+    display:block;
+    margin:20px 0;
+    font-size:18px;
+}

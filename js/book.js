@@ -2,7 +2,7 @@ document.write("<script type='text/javascript' src='js/jquery.js'></script>");
 document.write("<script type='text/javascript' src='js/jquery.md5.js'></script>");
 
 function book(ticketTypeID,TicketTypeIDDistributorLevelCode,ticketTypeName,num,touristName,touristTel,touristDate,check){
-       var token1="3714861a5b5d78f9bd5d25cb25b371a1357";
+       var token1=sessionStorage.token;
        //根据获取到的票型来看ID
       //alert("check"+check);
        var ticketTypeID1=ticketTypeID;
@@ -41,6 +41,7 @@ function book(ticketTypeID,TicketTypeIDDistributorLevelCode,ticketTypeName,num,t
                  success: function (result) {
                  	if(result.STATUS=="OOOKK"){
                         alert("您已经购票成功");
+                        $(".shopMsg").css("display","none");
                  	}
                  } ,
                  	error: function(err){

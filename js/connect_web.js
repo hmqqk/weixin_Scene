@@ -6,9 +6,9 @@ document.write("<script type='text/javascript' src='js/jquery.js'></script>");
 document.write("<script type='text/javascript' src='js/jquery.md5.js'></script>");
 
 jQuery(document).ready(function(){
-	   var token1="3714861a5b5d78f9bd5d25cb25b371a1357";
+	   var token1=sessionStorage.token;
        var para11="SMARTPARKCLIENT";
-       var para21="224";
+       var para21=sessionStorage.distributorID;
        var para31="0";
        var para41="1";
 
@@ -92,16 +92,7 @@ jQuery(document).ready(function(){
                                 container.append(testStr);
                             }
 
-                            var sub = $(".sub");
-                            var add = $(".add");
-                            add.click(function () {
-                                var attrNew = parseInt($(this).siblings("input").attr("value")) + 1;
-                                $(this).siblings("input").attr("value", attrNew);
-                            });
-                            sub.click(function () {
-                                var attrNew = parseInt($(this).siblings("input").attr("value")) - 1 <= 0 ? 1 : parseInt($(this).siblings("input").attr("value")) - 1;
-                                $(this).siblings("input").attr("value", attrNew);
-                            });
+
 
 
 
@@ -225,6 +216,20 @@ jQuery(document).ready(function(){
                    }
 
          });
+    //alert("testing add");
+
+    var sub = $(".sub");
+    var add = $(".add");
+    add.live("click",function () {
+        alert(1);
+        var attrNew = parseInt($(this).siblings("input").attr("value")) + 1;
+        $(this).siblings("input").attr("value", attrNew);
+    });
+    sub.live("click",function () {
+        var attrNew = parseInt($(this).siblings("input").attr("value")) - 1 <= 0 ? 1 : parseInt($(this).siblings("input").attr("value")) - 1;
+        $(this).siblings("input").attr("value", attrNew);
+    });
+
 })  ;
 
 
