@@ -8,16 +8,14 @@ The core of this project is to design the page of web by myself instead of imita
 
 # Preview
 <div align="center">
-<p> home page</p>
-<img src="Readme_images/index.png">
-<p> order page</p>
-<img src="Readme_images/order.png">
-<p> scene_detail page</p>
-<img src="Readme_images/scene_detail.png">
-<p> scene page</p>
-<img src="Readme_images/scene.png">
-<p> register page</p>
-<img src="Readme_images/register.png">
-<p> login page</p>
-<img src="Readme_images/login.png">
+<p> w_order page</p>
+<img src="Readme_images/w_order.png">
+<p> w_scene page</p>
+<img src="Readme_images/w_scene.png">
+<p> w_login page</p>
+<img src="Readme_images/w_login.png">
+<p> w_message page</p>
+<img src="Readme_images/w_login.png">
+<p> w_edit page</p>
+<img src="Readme_images/w_edit.png">
 </div>
