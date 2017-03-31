@@ -51,4 +51,9 @@ $(document).ready(function(){
         window.location.href="w_order.html";
     });
 
+    alert($(".ticketEle").attr("value"));
+    alert(editID);
+    $(".ticketEle").attr("value",editID);
+
+
 });

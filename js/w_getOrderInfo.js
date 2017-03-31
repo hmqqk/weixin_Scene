@@ -7,6 +7,8 @@ document.write("<script type='text/javascript' src='js/jquery.md5.js'></script>"
 
 jQuery(document).ready(function() {
 
+    var editID;
+
 
     var token1 = sessionStorage.token;
     var thirdpartyno1 = "1234567890127";
@@ -89,15 +91,13 @@ jQuery(document).ready(function() {
         $(".calcleMenu").css("display","none");
 
     });
-    $(".orderSure2").live("click",function(){
+    $(".ticketSub").live("click",function(){
         alert("cancelTickets");
         var token1=sessionStorage.token;
         var thirdpartyno1="1234567890127";
-        var content2D1=$(this).siblings(".ticketMsg2").find(".singleId").val()
-        alert("contentID"+content2D1);
-        alert($(this).siblings(".ticketMsg2").find(".singleId").val());
-
-        var avaliablenum1=parseInt($(this).siblings(".ticketMsg2").find(".cancleNum").val());
+        var content2D1=$(this).parent(".ticketNums").siblings(".ticketName").find(".eidtIdValue").html();
+        alert("content2D1"+content2D1);
+        var avaliablenum1=parseInt($(".ticketNum").val());
         alert("咋不执行呢");
         jQuery.ajax({
             url:"http://www.52uku.net/webservice.asmx/CancelTicketsForDistributor?jsoncallback=?",
@@ -221,13 +221,18 @@ jQuery(document).ready(function() {
         });
     });
 
-    $(".againID").live("click",function(){
-        $(".calcleMenu2").css("display","block");
+    $(".edit").live("click",function(){
+        editID=$(this).parent(".ticketNums").siblings(".ticketName").find(".eidtIdValue").html();
+        window.location.href="w_edit.html?editingID="+editID;
     });
-    $(".orderSure3").click(function(){
+    $(".sendAgain").live("click",function(){
+        window.location.href="w_sendAgain.html";
+    });
+    $(".Sure3").click(function(){
+        alert(1);
         var token1=sessionStorage.token;
         var thirdPartyOrderNo1="1234567890127";
-        var phoneNumber1=$(".phoneNum").val();
+        var phoneNumber1=$(".vistorPhone").val();
         jQuery.ajax({
             url:"http://www.52uku.net/webservice.asmx/SendOrderEtickets?jsoncallback=?",
             type:"GET",
@@ -244,7 +249,7 @@ jQuery(document).ready(function() {
             success: function (result) {
                 if(result.STATUS=="OOOKK"){
                     alert("重发码成功");
-                    $(".calcleMenu2").css("display","none");
+                    window.location.href="w_order.html";
                 }
             } ,
             error: function(err){
@@ -252,8 +257,8 @@ jQuery(document).ready(function() {
             }
         });
     });
-    $(".orderCancle3").click(function(){
-        $(".calcleMenu2").css("display","none");
+    $(".cancel2").click(function(){
+       window.location.href="w_order.html";
     });
 });
 

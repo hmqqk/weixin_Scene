@@ -33,8 +33,15 @@ jQuery(document).ready(function(){
     var toSalerInfo=new Array(100);
     var toTouristInfo=new Array(100);
     var website=new Array(100);
-    var TicketTypeIDDistributorLevelCode=new Array(100);
-
+    var TicketTypeIDDistributorLevelCode1=new Array(100);
+    var ID;
+    var TicketTypeIDDistributorLevelCodeInput;
+    var Name;
+    var touristName;
+    var touristTel;
+    var touristDate;
+    var num;
+    var check;
 
     jQuery.ajax({
         url:"http://www.52uku.net/webservice.asmx/getTicketTypeListForDistributor?jsoncallback=?",
@@ -61,6 +68,7 @@ jQuery(document).ready(function(){
                     ticketTypeName[i] = result.DATASET[i].TicketTypeName;
                     distributorID[i] = result.DATASET[i].DistributorID;
                     distributorName[i] = result.DATASET[i].DistributorName;
+                    TicketTypeIDDistributorLevelCode1[i] = result.DATASET[i].TicketTypeIDDistributorLevelCode;
                     printPrice[i] = result.DATASET[i].PrintPrice;
                     dealPrice[i] = result.DATASET[i].DealPrice;
                     lowerstPrice[i] = result.DATASET[i].LowestPrice;
@@ -73,7 +81,6 @@ jQuery(document).ready(function(){
                     toSalerInfo[i] = result.DATASET[i].ToSalerInfo;
                     toTouristInfo[i] = result.DATASET[i].ToTouristInfo;
                     website[i] = result.DATASET[i].Website;//
-                    TicketTypeIDDistributorLevelCode = result.DATASET[i].TicketTypeIDDistributorLevelCode;
                 }
                 for (i = 0; i < result.DATASET.length; i++) {
                     var sceneitems = $("ul");
@@ -101,14 +108,7 @@ jQuery(document).ready(function(){
 
 
                 var aBuy = $(".buy");
-                var ID;
-                var TicketTypeIDDistributorLevelCode;
-                var Name;
-                var touristName;
-                var touristTel;
-                var touristDate;
-                var num;
-                var check;
+
                 /*
                  $(".buy").click(function(){
                  alert(1);
@@ -166,49 +166,12 @@ jQuery(document).ready(function(){
                     aBuy[i].onclick = function () {
 
                         ID = ticketID[this.index];
-                        alert("ID IS WHAT"+ID);
-                        TicketTypeIDDistributorLevelCode = TicketTypeIDDistributorLevelCode[this.index];
+                        alert(ID);
+                        TicketTypeIDDistributorLevelCodeInput = TicketTypeIDDistributorLevelCode1[this.index];
+                        alert(TicketTypeIDDistributorLevelCodeInput);
                         Name = ticketTypeName[this.index];
-                        //touristName = getCookie("UserRealName");
-                        //touristTel = getCookie("UserMobile");
-                        //num = parseInt($(".numbers").attr("value"));
-                        //alert(check);
-
-
-                        //var container1=$(this).parent('.sceneDMsg').parent(".scenePart");
-                        //container1.css("height","163px");
-                        //var container2=$(this).parent(".sceneDMsg").siblings(".shopMsg");
-                        //alert(container2);
-                        //container2.fadeIn();
+                        alert(Name);
                         window.location.href="w_message.html";
-                        $(".cancel1").click(function(){
-                            alert("cancel1");
-                            window.location.href="w_scene.html";
-                        });
-
-
-
-                        $(".sure1").click(function(){
-                            touristName = $(this).parent(".shopMsg").find(".touristName").attr("value");
-                            alert("touristName"+touristName);
-                            touristTel = $(this).parent(".shopMsg").find(".touristPhone").attr("value");
-                            num = $(this).parent(".shopMsg").find(".numbers").attr("value");
-                            touristDate = $(this).parent(".shopMsg").find(".touristDate").attr("value");
-                            if($(this).parent(".shopMsg").find("#yes").attr("checked")==true)
-                            {
-                                check="1";
-                            }
-                            else
-                            {
-                                check="0";
-                            }
-                            alert("testing"+check);
-
-                            book(ID, TicketTypeIDDistributorLevelCode, Name, num, touristName, touristTel, touristDate, check);
-                        });
-
-
-
                     }
                 }
 
@@ -234,6 +197,32 @@ jQuery(document).ready(function(){
     sub.live("click",function () {
         var attrNew = parseInt($(this).siblings("input").attr("value")) - 1 <= 0 ? 1 : parseInt($(this).siblings("input").attr("value")) - 1;
         $(this).siblings("input").attr("value", attrNew);
+    });
+
+    $(".cancel1").click(function(){
+        alert("cancel1");
+        window.location.href="w_scene.html";
+    });
+
+    $(".sure1").click(function(){
+        alert("run .sure1");
+        touristName = $(".vistorName").val();
+        alert("touristName"+touristName);
+        touristTel = $(".vistorPhone").val();
+        num = $(".nums").val();
+        touristDate = $(".vistorDate").val();
+        if($(".sendMsg").attr("checked")==true)
+        {
+            check="1";
+        }
+        else
+        {
+            check="0";
+        }
+        alert("testing"+check);
+        alert("run book");
+
+        book(ID, TicketTypeIDDistributorLevelCodeInput, Name, num, touristName, touristTel, touristDate, check);
     });
 
 })  ;

@@ -6,7 +6,7 @@ function book(ticketTypeID,TicketTypeIDDistributorLevelCode,ticketTypeName,num,t
        //根据获取到的票型来看ID
       //alert("check"+check);
        var ticketTypeID1=ticketTypeID;
-       var TicketTypeIDDistributorLevelCode1=TicketTypeIDDistributorLevelCode;
+       var TicketTypeIDDistributorLevelCode2=TicketTypeIDDistributorLevelCode;
        var ticketTypeName1=ticketTypeName;
        var strticketNum1=num;
        var thirdpartyno1="1234567890127";
@@ -24,7 +24,7 @@ function book(ticketTypeID,TicketTypeIDDistributorLevelCode,ticketTypeName,num,t
                    data:{
                    	"token":token1,
                     "ticketTypeID":ticketTypeID1,
-                    "TicketTypeIDDistributorLevelCode":TicketTypeIDDistributorLevelCode1,
+                    "TicketTypeIDDistributorLevelCode":TicketTypeIDDistributorLevelCode2,
                     "ticketTypeName":ticketTypeName1,
                     "strticketNum":strticketNum1,
                     "thirdpartyno":thirdpartyno1,
@@ -33,15 +33,16 @@ function book(ticketTypeID,TicketTypeIDDistributorLevelCode,ticketTypeName,num,t
                     "touristPhone":touristPhone1,
                     "MMSflag":MMSflag1,
                     "bookorbuyorverifyflag":bookorbuyorverifyflag1,
-                    "verifycode":$.md5(token1+ticketTypeID1+TicketTypeIDDistributorLevelCode1+ticketTypeName1+strticketNum1+thirdpartyno1+TourDate1+touristName1+touristPhone1+MMSflag1+bookorbuyorverifyflag1)},
+                    "verifycode":$.md5(token1+ticketTypeID1+TicketTypeIDDistributorLevelCode2+ticketTypeName1+strticketNum1+thirdpartyno1+TourDate1+touristName1+touristPhone1+MMSflag1+bookorbuyorverifyflag1)},
                    dataType: "jsonp",
                    jsonp:'callback',
                    jsonpCallback:'jsonpCallback',
                    timeout:3000,
                  success: function (result) {
+                     alert("出错了吗");
                  	if(result.STATUS=="OOOKK"){
                         alert("您已经购票成功");
-                        $(".shopMsg").css("display","none");
+                        window.location.href="w_scene.html";
                  	}
                  } ,
                  	error: function(err){
